@@ -1,3 +1,13 @@
+/*
+	Faça um programa que calcule e mostre a tabuada de um número digitado pelo usuário.
+    Exemplo:
+    Digite um número: 5
+    5 × 0 = 0
+    5 × 1 = 5
+    5 × 2 = 10
+    ...
+*/
+
 #include<stdio.h>
 
 int main()
