@@ -1,3 +1,7 @@
+/*
+	Faça um programa que receba três números e mostre o maior.
+*/
+
 #include <stdio.h>
 
 int main()

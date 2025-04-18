@@ -1,3 +1,12 @@
+/*
+	Uma agência bancária possui dois tipos de investimentos, conforme o quadro a seguir. Faça um programa que receba o tipo de investimento e seu valor, calcule e mostre o valor corrigido após um mês de
+	investimento, de acordo com o tipo de investimento.
+
+	TIPO   |      DESCRIÇAO         |  % DE DESCONTO
+	1      | Poupança              |       3%
+	2      | Fundos de renda fixa  |       4%
+*/
+
 #include <stdio.h>
 
 #define rend_poup 1.03

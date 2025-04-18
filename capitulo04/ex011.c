@@ -1,9 +1,20 @@
+/*
+	Faça um programa que receba o salário atual de um funcionário e, usando a tabela a seguir, calcule e
+	mostre o valor do aumento e o novo salário.
+
+	     SALÁRIO           | PERCENTUAL DE AUMENTO
+	Até R$ 300,00          |     15%
+	R$ 300,00 R$ 600,00    |     10%
+	R$ 600,00 R$ 900,00    |      5%
+	Acima de R$ 900,00     |      0% 
+*/
+
 #include <stdio.h>
 
 int main()
 {
 	float sal, aumento;
-	printf("Qual seu salario atual? R$");
+	printf("Qual seu salario atual? R$ ");
 	scanf("%f", &sal);
 	
 	if (sal <= 300)
