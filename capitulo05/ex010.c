@@ -1,3 +1,7 @@
+/*
+    Faça um programa que receba dez números, calcule e mostre a soma dos números pares e a soma dos números primos.
+*/
+
 #include <stdio.h>
 
 int main()

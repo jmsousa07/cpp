@@ -1,3 +1,7 @@
+/*
+    Faça um programa que receba dez números inteiros e mostre a quantidade de números primos dentre os números que foram digitados.
+*/
+
 #include <stdio.h>
 
 int main()
