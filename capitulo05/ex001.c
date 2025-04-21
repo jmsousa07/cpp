@@ -2,105 +2,102 @@
     Faça um programa que leia cinco grupos de quatro valores (A, B, C, D) e mostre-os na ordem lida. Em seguida, organize-os em ordem crescente e decrescente.
 */
 
-// REFAZER CODIGO!
-
 #include <stdio.h>
 #include <stdlib.h>
+
+#define count 4
 
 int main() {
     int A[4], B[4], C[4], D[4], E[4];
     int ordem[20];
-    int cont, i, j, num;
+    int i;
     char proseguir;
 
-    // LER OS VALORES
-    for (cont = 0; cont < 4; cont++) {
-        printf("Digite o %do. valor para o grupo A: ", cont + 1);
-        scanf("%d", &A[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("Digite o %do. valor para o grupo B: ", cont + 1);
-        scanf("%d", &B[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("Digite o %do. valor para o grupo C: ", cont + 1);
-        scanf("%d", &C[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("Digite o %do. valor para o grupo D: ", cont + 1);
-        scanf("%d", &D[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("Digite o %do. valor para o grupo E: ", cont + 1);
-        scanf("%d", &E[cont]);
-    }
-    system("cls");
-
-    // MOSTRAR NA ORDEM LIDA
-    for (cont = 0; cont < 4; cont++) {
-        printf("A[%d] = %d\n", cont, A[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("B[%d] = %d\n", cont, B[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("C[%d] = %d\n", cont, C[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("D[%d] = %d\n", cont, D[cont]);
-    }
-    printf("\n");
-
-    for (cont = 0; cont < 4; cont++) {
-        printf("E[%d] = %d\n", cont, E[cont]);
+    // Ler os quatro valores do grupo A...
+    for (i = 0; i < count; i++)
+    {
+        printf("Digite o %do. valor do grupo A: ", i+1);
+        scanf("%d", &A[i]);
+        ordem[i] = A[i];
     }
 
-    for (cont = 0; cont < 4; cont++)
-	{
-        ordem[cont] = A[cont];
-        ordem[cont + 4] = B[cont];
-        ordem[cont + 8] = C[cont];
-        ordem[cont + 12] = D[cont];
-        ordem[cont + 16] = E[cont];
+    // Ler os quatro valores do grupo B...
+    for (i = 0; i < count; i++)
+    {
+        printf("Digite o %do. valor do grupo B: ", i+1);
+        scanf("%d", &B[i]);
+        ordem[i + 4] = B[i];
     }
 
-    printf("\nPressione C para ordenar os numeros: ");
+    // Ler os quatro valores do grupo C...
+    for (i = 0; i < count; i++)
+    {
+        printf("Digite o %do. valor do grupo C: ", i+1);
+        scanf("%d", &C[i]);
+        ordem[i + 8] = C[i];
+    }
+
+    // Ler os quatro valores do grupo D...
+    for (i = 0; i < count; i++)
+    {
+        printf("Digite o %do. valor do grupo D: ", i+1);
+        scanf("%d", &D[i]);
+        ordem[i + 12] = D[i];
+    }
+
+    // Ler os quatro valores do grupo E...
+    for (i = 0; i < count; i++)
+    {
+        printf("Digite o %do. valor do grupo E: ", i+1);
+        scanf("%d", &E[i]);
+        ordem[i + 16] = E[i];
+    }
+
+    printf("\nPressione qualquer caractere para prosseguir... ");
     scanf(" %c", &proseguir);
     system("cls");
 
+    // MOSTRAR NA ORDEM LIDA!
+    printf("\n=== Numeros na ordem lida ===\n");
     for (i = 0; i < 20; i++)
- 	{
-    for (j = i + 1; j < 20; j++)
-	{
-        if (ordem[i] > ordem[j])
-		{
-            num = ordem[i];
-            ordem[i] = ordem[j];
-            ordem[j] = num;
+    {
+        printf(" [%d] - %d\n", i+1, ordem[i]);
+    }
+
+    // ORGANIZAR!
+    int j, auxiliar = 0;
+    for (i = 0; i < 19; i++)
+    {
+        for (j = 0; j < 19 - i; j++)
+        {
+            if (ordem[j] > ordem[j + 1])
+            {
+                auxiliar = ordem[j];
+                ordem[j] = ordem[j + 1];
+                ordem[j + 1] = auxiliar;
+            }
         }
     }
-	}
 
-    // MOSTRAR NA ORDEM
-    printf("NUMEROS ORDENADOS:\n");
-    for (cont = 0; cont < 20; cont++) {
-        printf(" %d\n", ordem[cont]);
+    printf("\nPressione qualquer caractere para prosseguir... ");
+    scanf(" %c", &proseguir);
+    system("cls");
+
+    // MOSTRAR NA ORDEM CRESCENTE!
+    printf("\n=== Numeros em ordem crescente ===\n");
+    for (i = 0; i < 20; i++) {
+        printf(" [%d] - %d\n", i + 1, ordem[i]);
     }
 
+    printf("\nPressione qualquer caractere para prosseguir... ");
+    scanf(" %c", &proseguir);
+    system("cls");
+
+    // MOSTRAR NA ORDEM DECRESCENTE!
+    printf("\n=== Numeros em ordem decrescente ===\n");
+    for (i = 19; i >= 0; i--) {
+        printf(" [%d] - %d\n", 20 - i, ordem[i]);
+    }
+    
     return 0;
 }
-// REFAZER CODIGO!
