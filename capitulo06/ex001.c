@@ -1,4 +1,4 @@
-/*
+/* 
     Faça um programa que preencha um vetor com seis elementos numéricos inteiros. Calcule e mostre:
     ■ todos os números pares;
     ■ a quantidade de números pares;
@@ -6,76 +6,74 @@
     ■ a quantidade de números ímpares. 
 */
 
-// REFAZER CODIGO!
-
 #include <stdio.h>
 
 int main()
 {
-    int num[6], i;
-    int numPar[6], quantNumPar = 0;
-    int numImpar[6], quantNumImpar = 0;
+    int num[6], i = 0, jPar = 0, jImpar = 0;
+    int quantNumPar = 0, quantNumImp = 0;
+    int numPar[6], numImpar[6];
 
     for (i = 0; i < 6; i++)
     {
-        printf("Digite o %do. numero: ", i+1);
+        printf("Digite o %do. valor inteiro: ", i);
         scanf("%d", &num[i]);
 
         if (num[i] % 2 == 0)
         {
             quantNumPar++;
-            numPar[i] = num[i];
+            numPar[jPar] = num[i];
+            jPar++;
+        }
+        else 
+        {
+            quantNumImp++;
+            numImpar[jImpar] = num[i];
+            jImpar++;
+        }
+    }
+
+    if (quantNumImp == 0)
+    {
+        printf("\nVoce nao digitou nenhum numero IMPAR.\n");
+        printf("Numeros PARES digitados: \n");
+
+        for (i = 0; i < 6; i++)
+        {
+            printf("[%d] - %d\n", i, numPar[i]);
+        }
+    } else if (quantNumPar == 0)
+        {
+            printf("\nVoce nao digitou nenhum numero PAR.\n");
+            printf("Numeros IMPARES digitados: \n");
+
+            for (i = 0; i < 6; i++)
+            {
+                printf("[%d] - %d\n", i, numImpar[i]);
+            }
         }
         else
         {
-            quantNumImpar++;
-            numImpar[i] = num[i];
-        }
-        
-    }
+            printf("\nVoce digitou %d numeros PARES\n", quantNumPar);
+             printf("Voce digitou %d numeros IMPARES\n", quantNumImp);
 
-    if (quantNumPar == 0)
-    {
-        printf("Voce nao digitou nenhum numero par. ");
-        printf("\nNumeros impares digitados: \n");
-        for (i = 0; i < 6; i++)
-        {
-            printf(" - %d\n", numImpar[i]);
-        }
+            printf("\nNumeros PARES digitados:\n");
 
-    } else if (quantNumImpar == 0)
-        {
-            printf("Voce nao digitou nenhum numero impar. ");
-            printf("Numeros pares digitados: \n");
-            for (i = 0; i < 6; i++)
+            for (i = 0; i < quantNumPar; i++)
             {
-                printf(" - %d\n", numPar[i]);
-            } 
-
-        } else
-        {
-            printf("Voce digitou %d numeros impares e %d numeros pares. \n", quantNumImpar, quantNumPar);
-            printf("Numeros pares digitados: \n");
-            for (i = 0; i < 6; i++)
-            {
-                if (numPar[i] > -10000 && numPar < 10000)
-                {
-                    printf(" - %d\n", numPar[i]);
-                }
+                jPar = i;
+                printf("%do. %d\n", i, numPar[jPar]);
             }
+            
 
-            printf("Numeros impares digitados: \n");
-            for (i = 0; i < 6; i++)
+            printf("\nNumeros IMPARES digitados:\n");
+
+            for (i = 0; i < quantNumImp; i++)
             {
-                if (numImpar[i] > -10000 && numImpar < 10000)
-                {
-                    printf(" - %d\n", numImpar[i]);
-                }
-                
+                jImpar = i;
+                printf("%do. %d\n", i, numImpar[jImpar]);
             }
         }
-
     
     return 0;
 }
-// REFAZER CODIGO!
