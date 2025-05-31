@@ -19,9 +19,9 @@ int main()
 {
     char nome[6][20];
     float n1[6], n2[6], media[6], somaMedia, mediaClasse;
-    int i, somaAlunosAprovados = 0, somaAlunosReprovados = 0;
-    float porcAprovados, porcReprovados;
-    bool situacao[6];
+    int i, somaAlunosAprovados = 0, somaAlunosReprovados = 0, somaAlunoRecuperacao = 0;
+    float porcAprovados, porcReprovados, porcRecuperacao;
+    int situacao[6];
 
     for (i = 0; i < 6; i++)
     {
@@ -36,37 +36,48 @@ int main()
 
         media[i] = (n1[i] + n2[i]) / 2;
         somaMedia += media[i];
-        if (media[i] < 7.0)
+        if (media[i] < 5.0)
         {
-            situacao[i] = false;
+            situacao[i] = 0;
             somaAlunosReprovados++;
         }
-        else 
+        else if (media[i] < 7.0)
         {
-            situacao[i] = true;
+            situacao[i] = 1;
+            somaAlunoRecuperacao++;
+        }
+        else
+        {
+            situacao[i] = 2;
             somaAlunosAprovados++;
         }
     }
     mediaClasse = somaMedia / 6; 
-    porcAprovados = somaAlunosAprovados / 6.0;
-    porcReprovados = somaAlunosReprovados / 6.0;
+    porcAprovados = somaAlunosAprovados / 6.0 * 100;
+    porcRecuperacao = somaAlunoRecuperacao / 6.0 * 100;
+    porcReprovados = somaAlunosReprovados / 6.0 * 100;
 
     printf("\n  ALUNO  |  1o. PROVA  |  2o. PROVA  |  MEDIA  |  SITUACAO  \n");
     for (i = 0; i < 6; i++)
     {
-        if (situacao[i] == true)
+        if (situacao[i] == 2)
         {
-            printf(" %s  %.1f  %.1f  %.1f  Aprovado \n", nome[i], n1[i], n2[i], media[i]);
+            printf("  %s  |  %.1f  |  %.1f  |  %.1f  |  Aprovado \n", nome[i], n1[i], n2[i], media[i]);
+        }
+        else if (situacao[i] == 1)
+        {
+            printf("  %s  |  %.1f  |  %.1f  |  %.1f  |  Recuperacao \n", nome[i], n1[i], n2[i], media[i]);
         }
         else
         {
-            printf(" %s  %.1f  %.1f  %.1f  Reprovado \n", nome[i], n1[i], n2[i], media[i]);
+            printf("  %s  |  %.1f  |  %.1f  |  %.1f  |  Reprovado \n", nome[i], n1[i], n2[i], media[i]);
         }
     }
 
     printf("\nMedia da classe: %.1f", mediaClasse);
-    printf("\nPorcentagem de alunos aprovados %.1f%%", porcAprovados);
-    printf("\nPorcentagem de alunos reprovados %.1f%%", porcReprovados);
+    printf("\nPorcentagem de alunos aprovados: %.1f%%", porcAprovados);
+    printf("\nPorcentagem de alunos de recuperacao: %.1f%%", porcRecuperacao);
+    printf("\nPorcentagem de alunos reprovados: %.1f%%", porcReprovados);
 
     return 0;
 }
