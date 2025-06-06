@@ -28,7 +28,7 @@ int main()
     for (i = 0; i < tam; i++)
     {
         vetResultante[i] = vet[i] / (float)maior;
-        printf("posicao %d: %.4f \n", i+1, vetResultante[i]);
+        printf("posicao %d: %.2f \n", i+1, vetResultante[i]);
     }
 
     return 0;
