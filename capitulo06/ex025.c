@@ -24,11 +24,11 @@ int main()
         }
     }
 
-    printf("\n Vetor resultante: \n");
+    printf("\n ---------------- \n Vetor resultante \n ---------------- \n");
     for (i = 0; i < tam; i++)
     {
         vetResultante[i] = vet[i] / (float)maior;
-        printf(" %.2f \n", vetResultante[i]);
+        printf("posicao %d: %.4f \n", i+1, vetResultante[i]);
     }
 
     return 0;
